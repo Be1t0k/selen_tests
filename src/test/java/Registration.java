@@ -57,9 +57,8 @@ public class Registration extends Data {
         driver.get(data.baseUrl);
         driver.findElement(signup_button).click();
         Assert.assertEquals(data.logUrl, driver.getCurrentUrl());
-        driver.findElement(email_input).sendKeys(data.email);
         driver.findElement(pass_input).sendKeys(data.password);
         driver.findElement(By.name("commit")).click();
-        Assert.assertEquals(data.baseUrl, driver.getCurrentUrl());
+        Assert.assertEquals("incorrect email or password.", driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]")).getText());
     }
 }
