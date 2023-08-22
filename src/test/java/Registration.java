@@ -32,7 +32,34 @@ public class Registration extends Data {
         driver.findElement(pass_input).sendKeys(data.password);
         driver.findElement(username_input).sendKeys("walterwhiteyo");
         driver.findElement(By.name("commit")).click();
-        Assert.assertEquals(data.joinUrl, driver.getCurrentUrl());
+        Assert.assertEquals(data.baseUrl, driver.getCurrentUrl());
         //driver.quit();
+    }
+    @Test
+    public void Login(){
+        WebDriver driver = new ChromeDriver();
+        Data data = new Data();
+        driver.manage().window().maximize();
+        driver.get(data.baseUrl);
+        driver.findElement(signup_button).click();
+        Assert.assertEquals(data.logUrl, driver.getCurrentUrl());
+        driver.findElement(email_input).sendKeys(data.email);
+        driver.findElement(pass_input).sendKeys(data.password);
+        driver.findElement(By.name("commit")).click();
+        Assert.assertEquals(data.baseUrl, driver.getCurrentUrl());
+    }
+
+    @Test
+    public void FaultLogin(){
+        WebDriver driver = new ChromeDriver();
+        Data data = new Data();
+        driver.manage().window().maximize();
+        driver.get(data.baseUrl);
+        driver.findElement(signup_button).click();
+        Assert.assertEquals(data.logUrl, driver.getCurrentUrl());
+        driver.findElement(email_input).sendKeys(data.email);
+        driver.findElement(pass_input).sendKeys(data.password);
+        driver.findElement(By.name("commit")).click();
+        Assert.assertEquals(data.baseUrl, driver.getCurrentUrl());
     }
 }
