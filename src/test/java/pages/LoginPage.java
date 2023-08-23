@@ -1,18 +1,45 @@
 package pages;
 
+import helpers.ConfigProvider;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import test.BaseSeleniumPage;
 
-public class LoginPage {
+public class LoginPage extends BaseSeleniumPage {
 
-    private By join_link = By.className("keymaster-link");
-    private By signup_button = By.id("nav-LoginJoin");
-    private By signin_button = By.id("nav-Login");
-    private By email_input = By.name("authentication_method[email]");
-    private By pass_input = By.xpath("//*[@id=\"user_password\"]");
-    private By error_empy_email = By.xpath("//*[@id=\"keymaster-login-errors\"]");
-    private By log_button = By.xpath("//*[@id=\"keymaster-login-button\"]");
+    @FindBy(xpath = "//*[@id=\"keymaster-content\"]/div/div[1]/a")
+    private WebElement join_link;
+    @FindBy(name = "authentication_method[email]")
+    private WebElement email_input;
+    @FindBy(xpath = "//*[@id=\"keymaster-sso-search-button\"]")
+    private WebElement continue_log_button;
+    @FindBy(xpath = "//*[@id=\"keymaster-login-button\"]")
+    private WebElement log_button;
+    @FindBy(id = "keymaster-header-image")
+    private WebElement header_image;
+    @FindBy(xpath = "//*[@id=\"user_password\"]")
+    private WebElement pass_input;
+    @FindBy(id = "keymaster-forgot-password")
+    private WebElement forgot_pass;
+    @FindBy(xpath = "//*[@id=\"keymaster-login-errors\"]")
+    private WebElement error_empy_email;
+    @FindBy(xpath = "//*[@id=\"keymaster-contact-support\"]/a")
+    private WebElement trouble_enter;
 
     public void ClickToJoin(){
-        
+        join_link.click();
+    }
+    public void InputLoginData(String email, String password){
+        email_input.sendKeys(email);
+        continue_log_button.click();
+        pass_input.sendKeys(password);
+        log_button.click();
+    }
+
+    public LoginPage(){
+        driver.get(ConfigProvider.URL);
+        PageFactory.initElements(driver, this);
     }
 }
