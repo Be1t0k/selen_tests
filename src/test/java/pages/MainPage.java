@@ -1,12 +1,11 @@
 package pages;
 
 import helpers.ConfigProvider;
-import org.junit.Test;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import test.BaseSeleniumPage;
+import base.BaseSeleniumPage;
 
 public class MainPage extends BaseSeleniumPage {
     @FindBy(id = "nav-Login")
@@ -18,8 +17,8 @@ public class MainPage extends BaseSeleniumPage {
     @FindBy(xpath = "//*[@id=\"NavTextField\"]")
     private WebElement search_input;
     @FindBy(xpath = "//*[@id=\"home-media-type-select-button\"]")
-    private WebElement dropdowm_button;
-    @FindBy(xpath = "//*[@id=\"home-media-type-1\"]")
+    private WebElement dropdown_button;
+    @FindBy(id = "home-media-type-1")
     private WebElement list_item;
 
     public MainPage(){
@@ -30,10 +29,10 @@ public class MainPage extends BaseSeleniumPage {
         login_header_button.click();
         return new LoginPage();
     }
-    public SearchPage Search(){
-        dropdowm_button.click();
-        list_item.click();
-        search_input.sendKeys("metal", Keys.ENTER);
+    public SearchPage Search(String query){
+        /*dropdown_button.click();
+        list_item.click();*/
+        search_input.sendKeys(query, Keys.ENTER);
         return new SearchPage();
     }
 }
