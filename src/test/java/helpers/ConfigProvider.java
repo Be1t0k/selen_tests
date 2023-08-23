@@ -10,5 +10,8 @@ public interface ConfigProvider {
     }
     String URL = readConfig().getString("url");
     String EMAIL = readConfig().getString("email");
-    String PASSWORD = readConfig().getString("email");
+    String PASSWORD = readConfig().getString("password");
+    String LOGINURL = readConfig().getString("urlParams.loginUrl");
+    String REGISTERURL = readConfig().getString("urlParams.registerUrl");
+
 }

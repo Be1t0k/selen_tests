@@ -2,6 +2,7 @@ package pages;
 
 import helpers.ConfigProvider;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,11 +32,11 @@ public class LoginPage extends BaseSeleniumPage {
     public void ClickToJoin(){
         join_link.click();
     }
-    public void InputLoginData(String email, String password){
+    public MainPage InputLoginData(String email, String password){
         email_input.sendKeys(email);
         continue_log_button.click();
-        pass_input.sendKeys(password);
-        log_button.click();
+        pass_input.sendKeys(password, Keys.ENTER);
+        return new MainPage();
     }
 
     public LoginPage(){
