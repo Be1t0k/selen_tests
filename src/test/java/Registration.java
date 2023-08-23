@@ -1,19 +1,16 @@
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static java.lang.Thread.sleep;
 
-public class Registration extends Data {
-
+public class Registration {
     private By signup_button = By.id("nav-LoginJoin");
     private By email_input = By.name("user[email]");
     private By pass_input = By.name("user[password]");
     private By passconf_input = By.name("user[password_confirmation]");
-    private By agree_check = By.name("user[newsletter_subscriber]");
     @Test
     public void registration() throws InterruptedException{
 
