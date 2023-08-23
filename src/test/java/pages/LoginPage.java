@@ -9,7 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 import test.BaseSeleniumPage;
 
 public class LoginPage extends BaseSeleniumPage {
-
+    public LoginPage(){
+        PageFactory.initElements(driver, this);
+    }
     @FindBy(xpath = "//*[@id=\"keymaster-content\"]/div/div[1]/a")
     private WebElement join_link;
     @FindBy(name = "authentication_method[email]")
@@ -28,7 +30,6 @@ public class LoginPage extends BaseSeleniumPage {
     private WebElement error_empy_email;
     @FindBy(xpath = "//*[@id=\"keymaster-contact-support\"]/a")
     private WebElement trouble_enter;
-
     public void ClickToJoin(){
         join_link.click();
     }
@@ -37,10 +38,5 @@ public class LoginPage extends BaseSeleniumPage {
         continue_log_button.click();
         pass_input.sendKeys(password, Keys.ENTER);
         return new MainPage();
-    }
-
-    public LoginPage(){
-        driver.get(ConfigProvider.URL);
-        PageFactory.initElements(driver, this);
     }
 }
