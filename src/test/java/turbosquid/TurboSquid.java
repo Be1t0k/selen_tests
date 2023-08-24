@@ -25,4 +25,18 @@ public class TurboSquid extends BaseSeleniumTest {
                 .OpenDetails()
                 .AddToCart();
     }
+    @Test
+    public void SearchWithChangeType(){
+        MainPage mainPage = new MainPage();
+        mainPage.ChangeTypeSearch().Search(ConfigProvider.SEARCH_DATA);
+    }
+    @Test
+    public void AddToCartUser(){
+        MainPage mainPage = new MainPage();
+        mainPage.MoveToLogin()
+                .InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD)
+                .Search(ConfigProvider.SEARCH_DATA)
+                .OpenDetails()
+                .AddToCart();
+    }
 }

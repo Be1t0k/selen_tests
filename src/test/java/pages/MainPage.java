@@ -1,11 +1,16 @@
 package pages;
 
 import helpers.ConfigProvider;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import base.BaseSeleniumPage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class MainPage extends BaseSeleniumPage {
     @FindBy(id = "nav-Login")
@@ -29,9 +34,14 @@ public class MainPage extends BaseSeleniumPage {
         login_header_button.click();
         return new LoginPage();
     }
+    public MainPage ChangeTypeSearch(){
+        dropdown_button.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"mediaTypeSelect\"]/div/div[2]/li[4]")));
+        list_item.click();
+        return new MainPage();
+    }
     public SearchPage Search(String query){
-        /*dropdown_button.click();
-        list_item.click();*/
         search_input.sendKeys(query, Keys.ENTER);
         return new SearchPage();
     }
