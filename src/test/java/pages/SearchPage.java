@@ -36,6 +36,7 @@ public class SearchPage extends BaseSeleniumPage {
         goodIcon.click();
         linkToDetails.click();
         Assert.assertTrue(search_res.getText().toLowerCase().contains(ConfigProvider.SEARCH_DATA.toLowerCase()));
+        Assert.assertTrue(CheckElement(By.xpath("//*[@id=\"price\"]/a")));
         return new DetailsPage();
     }
 }
