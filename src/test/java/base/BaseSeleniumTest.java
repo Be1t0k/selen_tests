@@ -20,6 +20,7 @@ abstract public class BaseSeleniumTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(5));
         BaseSeleniumPage.setDriver(driver);
     }
     @After

@@ -1,5 +1,7 @@
 package pages;
 
+import helpers.ConfigProvider;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -23,6 +25,8 @@ public class LoginPage extends BaseSeleniumPage {
     private WebElement continue_log_button;
     @FindBy(xpath = "//*[@id=\"keymaster-login-button\"]")
     private WebElement log_button;
+    @FindBy(xpath = "//*[@id=\"keymaster-login-button\"]")
+    private By by_log_button;
     @FindBy(id = "keymaster-header-image")
     private WebElement header_image;
     @FindBy(xpath = "//*[@id=\"user_password\"]")
@@ -43,6 +47,8 @@ public class LoginPage extends BaseSeleniumPage {
         log_button.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"user_password\"]")));
+        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.URL);
+        Assert.assertTrue(driver.findElement(By.className("icon-user")).isDisplayed());
         return new MainPage();
     }
 }

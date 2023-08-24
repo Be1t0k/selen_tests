@@ -14,6 +14,11 @@ public class TurboSquid extends BaseSeleniumTest {
                 .InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD);
     }
     @Test
+    public void IncorrectLogin(){
+        MainPage mainPage = new MainPage();
+        mainPage.MoveToLogin().InputLoginData(ConfigProvider.INCORRECT_EMAIL, ConfigProvider.PASSWORD);
+    }
+    @Test
     public void Search(){
         MainPage mainPage = new MainPage();
         mainPage.Search(ConfigProvider.SEARCH_DATA)
