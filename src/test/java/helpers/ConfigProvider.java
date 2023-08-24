@@ -13,5 +13,6 @@ public interface ConfigProvider {
     String INCORRECT_EMAIL = readConfig().getString("loginParams.emails.incorrect_email");
     String PASSWORD = readConfig().getString("loginParams.passwords.password");
     String SEARCH_DATA = readConfig().getString("searchParams.search_data");
+    String WRONG_SEARCH_DATA = readConfig().getString("searchParams.wrong_search_data");
 
 }
