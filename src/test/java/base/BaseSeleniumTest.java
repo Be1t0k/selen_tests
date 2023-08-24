@@ -15,6 +15,7 @@ abstract public class BaseSeleniumTest {
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        options.addArguments("--disable-gpu");
         driver = WebDriverManager.chromedriver().capabilities(options).create();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));

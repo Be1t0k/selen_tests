@@ -11,5 +11,6 @@ public interface ConfigProvider {
     String URL = readConfig().getString("url");
     String EMAIL = readConfig().getString("email");
     String PASSWORD = readConfig().getString("password");
+    String SEARCH_DATA = readConfig().getString("urlParams.search_data");
 
 }

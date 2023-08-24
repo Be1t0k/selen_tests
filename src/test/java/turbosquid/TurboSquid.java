@@ -16,7 +16,8 @@ public class TurboSquid extends BaseSeleniumTest {
     @Test
     public void Search(){
         MainPage mainPage = new MainPage();
-        mainPage.Search("metal")
+        mainPage.Search(ConfigProvider.SEARCH_DATA)
+                .OpenDetails()
                 .AddToCart();
     }
 }
