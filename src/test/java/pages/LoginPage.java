@@ -1,10 +1,15 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import base.BaseSeleniumPage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage extends BaseSeleniumPage {
     public LoginPage(){
@@ -34,7 +39,10 @@ public class LoginPage extends BaseSeleniumPage {
     public MainPage InputLoginData(String email, String password){
         email_input.sendKeys(email);
         continue_log_button.click();
-        pass_input.sendKeys(password, Keys.ENTER);
+        pass_input.sendKeys(password);
+        log_button.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"user_password\"]")));
         return new MainPage();
     }
 }

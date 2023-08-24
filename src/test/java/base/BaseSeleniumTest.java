@@ -15,7 +15,7 @@ abstract public class BaseSeleniumTest {
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = WebDriverManager.chromedriver().create();
+        driver = WebDriverManager.chromedriver().capabilities(options).create();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
