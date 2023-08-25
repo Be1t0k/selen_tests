@@ -6,11 +6,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+
 public class BaseSelenideTest {
      public void setUp(){
          WebDriverManager.chromedriver().setup();
          Configuration.browser = "chrome";
-         Configuration.browserSize = "1920x1080";
          Configuration.headless = false;
      }
      @Before
