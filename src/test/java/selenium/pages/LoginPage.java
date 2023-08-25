@@ -4,16 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import selenium.base.BaseSeleniumPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.base.BaseSeleniumPage;
 
 import java.time.Duration;
 
 public class LoginPage extends BaseSeleniumPage {
-    public LoginPage(){
-        PageFactory.initElements(driver, this);
-    }
     @FindBy(xpath = "//*[@id=\"keymaster-content\"]/div/div[1]/a")
     private WebElement join_link;
     @FindBy(name = "authentication_method[email]")
@@ -34,10 +31,15 @@ public class LoginPage extends BaseSeleniumPage {
     private WebElement error_empy_email;
     @FindBy(xpath = "//*[@id=\"keymaster-contact-support\"]/a")
     private WebElement trouble_enter;
-    public void ClickToJoin(){
+    public LoginPage() {
+        PageFactory.initElements(driver, this);
+    }
+
+    public void ClickToJoin() {
         join_link.click();
     }
-    public MainPage InputLoginData(String email, String password){
+
+    public MainPage InputLoginData(String email, String password) {
         email_input.sendKeys(email);
         continue_log_button.click();
         pass_input.sendKeys(password);
@@ -46,7 +48,8 @@ public class LoginPage extends BaseSeleniumPage {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"user_password\"]")));
         return new MainPage();
     }
-    public LoginPage WrongInputLoginData(String email, String password){
+
+    public LoginPage WrongInputLoginData(String email, String password) {
         email_input.sendKeys(email);
         continue_log_button.click();
         pass_input.sendKeys(password);
@@ -55,7 +58,8 @@ public class LoginPage extends BaseSeleniumPage {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"user_password\"]")));
         return this;
     }
-    public String getErrorMessage(){
+
+    public String getErrorMessage() {
         return error_empy_email.getText().toLowerCase();
     }
 }
