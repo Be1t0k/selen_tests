@@ -1,6 +1,6 @@
 package selenium.turbosquid;
 
-import selenium.helpers.ConfigProvider;
+import helpers.ConfigProvider;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;

@@ -1,11 +1,11 @@
-package selenide.helpers;
+package helpers;
 
 import org.junit.Test;
-import selenide.base.BaseSelenideTest;
+import selenium.base.BaseSeleniumTest;
 
 import java.io.IOException;
 
-public class ReadProperties extends BaseSelenideTest {
+public class ReadProperties extends BaseSeleniumTest {
     @Test
     public void readFromConf() throws IOException{
         String urlFromConf = ConfigProvider.URL;

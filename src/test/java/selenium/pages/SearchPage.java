@@ -1,6 +1,6 @@
 package selenium.pages;
 
-import selenium.helpers.ConfigProvider;
+import helpers.ConfigProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;

@@ -1,12 +1,12 @@
 package selenide.turbosquid;
 
+import helpers.ConfigProvider;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
 import selenide.base.BaseSelenideTest;
-import selenide.helpers.ConfigProvider;
 import selenide.pages.MainPage;
 import selenide.pages.SearchPage;
 
