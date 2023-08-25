@@ -1,10 +1,14 @@
 package turbosquid;
 
 import helpers.ConfigProvider;
+import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import pages.DetailsPage;
 import pages.LoginPage;
 import pages.MainPage;
 import base.BaseSeleniumTest;
+import pages.SearchPage;
 
 public class TurboSquid extends BaseSeleniumTest {
     @Test
@@ -12,23 +16,26 @@ public class TurboSquid extends BaseSeleniumTest {
         MainPage mainPage = new MainPage();
         mainPage.MoveToLogin()
                 .InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD);
+        Assert.assertTrue(driver.getCurrentUrl().contains(ConfigProvider.LOGIN_URL));
+        Assert.assertTrue(driver.findElement(By.className("icon-user")).isDisplayed());
     }
     @Test
     public void IncorrectLogin(){
-        MainPage mainPage = new MainPage();
-        mainPage.MoveToLogin().InputLoginData(ConfigProvider.INCORRECT_EMAIL, ConfigProvider.PASSWORD);
+        LoginPage loginPage = new MainPage().MoveToLogin().WrongInputLoginData(ConfigProvider.INCORRECT_EMAIL, ConfigProvider.PASSWORD);
+        Assert.assertTrue(driver.getCurrentUrl().contains(ConfigProvider.LOGIN_URL));
+        Assert.assertEquals(loginPage.getErrorMessage(), "invalid email or password.");
     }
     @Test
     public void Search(){
-        MainPage mainPage = new MainPage();
-        mainPage.Search(ConfigProvider.SEARCH_DATA)
+        DetailsPage detailsPage = new MainPage().Search(ConfigProvider.SEARCH_DATA)
                 .OpenDetails()
-                .AddToCart();
+                .AddToCart("1");
     }
     @Test
     public void SearchWithChangeType(){
-        MainPage mainPage = new MainPage();
-        mainPage.ChangeTypeSearch().Search(ConfigProvider.SEARCH_DATA);
+        SearchPage searchPage = new MainPage().ChangeTypeSearch().Search(ConfigProvider.SEARCH_DATA);
+        Assert.assertTrue(searchPage.getPriceElement());
+        Assert.assertTrue(searchPage.getSearchResult().contains(ConfigProvider.SEARCH_DATA));
     }
     @Test
     public void AddToCartUser(){
@@ -37,6 +44,6 @@ public class TurboSquid extends BaseSeleniumTest {
                 .InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD)
                 .Search(ConfigProvider.SEARCH_DATA)
                 .OpenDetails()
-                .AddToCart();
+                .AddToCart("4");
     }
 }

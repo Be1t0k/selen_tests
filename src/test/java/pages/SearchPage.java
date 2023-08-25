@@ -20,6 +20,8 @@ public class SearchPage extends BaseSeleniumPage {
     private WebElement linkToDetails;
     @FindBy(xpath = "//ul[@id=\"searchSummaryContainer\"]/li/div/h1/span[2]")
     private WebElement search_res;
+    @FindBy(xpath = "//*[@id=\"price\"]/a")
+    private By price_toggle;
 
     public boolean CheckElement(By element){
         try {
@@ -38,5 +40,11 @@ public class SearchPage extends BaseSeleniumPage {
         Assert.assertTrue(search_res.getText().toLowerCase().contains(ConfigProvider.SEARCH_DATA.toLowerCase()));
         Assert.assertTrue(CheckElement(By.xpath("//*[@id=\"price\"]/a")));
         return new DetailsPage();
+    }
+    public String getSearchResult(){
+        return search_res.getText().toLowerCase();
+    }
+    public Boolean getPriceElement(){
+        return CheckElement(By.xpath("//*[@id=\"price\"]/a"));
     }
 }

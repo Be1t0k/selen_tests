@@ -22,10 +22,11 @@ public class DetailsPage extends BaseSeleniumPage {
     @FindBy(xpath = "//*[@id=\"quickPurchaseModalLabel\"]")
     private WebElement modalTitle;
 
-    public void AddToCart() {
+    public DetailsPage AddToCart(String cart_count) {
         addToCartButton.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.visibilityOf(modalTitle));
-        Assert.assertEquals("3", cartCount.getText());
+        Assert.assertEquals(cart_count, cartCount.getText());
+        return this;
     }
 }

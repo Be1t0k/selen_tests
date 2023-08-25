@@ -9,6 +9,7 @@ public interface ConfigProvider {
         return ConfigFactory.load("application.conf");
     }
     String URL = readConfig().getString("url");
+    String LOGIN_URL = readConfig().getString("loginUrl");
     String EMAIL = readConfig().getString("loginParams.emails.email");
     String INCORRECT_EMAIL = readConfig().getString("loginParams.emails.incorrect_email");
     String PASSWORD = readConfig().getString("loginParams.passwords.password");

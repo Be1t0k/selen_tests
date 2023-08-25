@@ -47,8 +47,18 @@ public class LoginPage extends BaseSeleniumPage {
         log_button.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"user_password\"]")));
-        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.URL);
-        Assert.assertTrue(driver.findElement(By.className("icon-user")).isDisplayed());
         return new MainPage();
+    }
+    public LoginPage WrongInputLoginData(String email, String password){
+        email_input.sendKeys(email);
+        continue_log_button.click();
+        pass_input.sendKeys(password);
+        log_button.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"user_password\"]")));
+        return this;
+    }
+    public String getErrorMessage(){
+        return error_empy_email.getText().toLowerCase();
     }
 }
