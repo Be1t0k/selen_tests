@@ -1,17 +1,18 @@
-package turbosquid;
+package selenium.turbosquid;
 
-import helpers.ConfigProvider;
+import selenium.helpers.ConfigProvider;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import pages.DetailsPage;
-import pages.LoginPage;
-import pages.MainPage;
-import base.BaseSeleniumTest;
-import pages.SearchPage;
+import selenium.pages.DetailsPage;
+import selenium.pages.LoginPage;
+import selenium.pages.MainPage;
+import selenium.base.BaseSeleniumTest;
+import selenium.pages.SearchPage;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TurboSquid extends BaseSeleniumTest {
     @Test

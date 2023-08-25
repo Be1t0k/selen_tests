@@ -1,13 +1,10 @@
-package pages;
+package selenium.pages;
 
-import helpers.ConfigProvider;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import base.BaseSeleniumPage;
+import selenium.base.BaseSeleniumPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 

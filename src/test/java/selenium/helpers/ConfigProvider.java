@@ -1,4 +1,4 @@
-package helpers;
+package selenium.helpers;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;

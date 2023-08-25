@@ -1,6 +1,6 @@
-package pages;
+package selenium.pages;
 
-import helpers.ConfigProvider;
+import selenium.helpers.ConfigProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import base.BaseSeleniumPage;
+import selenium.base.BaseSeleniumPage;
 
 public class SearchPage extends BaseSeleniumPage {
     public SearchPage(){

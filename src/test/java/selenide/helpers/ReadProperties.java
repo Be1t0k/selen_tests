@@ -1,7 +1,7 @@
-package helpers;
+package selenide.helpers;
 
 import org.junit.Test;
-import base.BaseSeleniumTest;
+import selenium.base.BaseSeleniumTest;
 
 import java.io.IOException;
 
