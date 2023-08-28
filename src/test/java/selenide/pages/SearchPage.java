@@ -10,6 +10,7 @@ import selenium.pages.DetailsPage;
 import java.time.Duration;
 import java.util.Collection;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -35,7 +36,9 @@ public class SearchPage {
 
     public SearchPage FromSearchAddToCart() {
         hover_asset_items.first().scrollIntoView(true).hover();
-        add_to_cart_buttons.first().click();
+        link_to_details.first().click();
+        $x("//*[@id=\"FPAddToCart\"]/button/span").click();
+        $x("//*[@id=\"quickPurchaseModal\"]/div[2]/div[1]").should(appear, Duration.ofSeconds(15));
         return this;
     }
 }

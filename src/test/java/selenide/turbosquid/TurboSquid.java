@@ -1,5 +1,6 @@
 package selenide.turbosquid;
 
+import com.codeborne.selenide.As;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import helpers.ConfigProvider;
@@ -46,7 +47,7 @@ public class TurboSquid extends BaseSelenideTest {
         SearchPage searchPage = new MainPage()
                 .ChangeTypeSearch()
                 .Search(ConfigProvider.SEARCH_DATA);
-        Assert.assertTrue(webdriver().driver().getCurrentFrameUrl().contains(ConfigProvider.URL));
+        Assert.assertTrue(searchPage.getSearchResult().contains("texture maps"));
         Assert.assertTrue(searchPage.getSearchResult().contains(ConfigProvider.SEARCH_DATA.toLowerCase()));
     }
     /*

@@ -33,7 +33,9 @@ public class MainPage {
     public SearchPage Search(String query){
         search_input.sendKeys(query, Keys.ENTER);
         return new SearchPage();
-
+    }
+    public String getTypeText(){
+        return list_items.first().getText().toLowerCase();
     }
 }
 
