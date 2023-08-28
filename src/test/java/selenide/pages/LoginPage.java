@@ -26,4 +26,16 @@ public class LoginPage {
         email_pass_error_message.shouldBe(empty);
         return new MainPage();
     }
+
+    public LoginPage InputWrongLoginData(String email, String password) {
+        email_input.sendKeys(email, Keys.ENTER);
+        password_input.sendKeys(password, Keys.ENTER);
+        password_input.shouldNot(disappear, Duration.ofSeconds(4));
+        email_pass_error_message.shouldNotBe(empty);
+        return new LoginPage();
+    }
+
+    public String getErrorMessage() {
+        return email_pass_error_message.getText().toLowerCase();
+    }
 }

@@ -19,7 +19,7 @@ public class MainPage {
     private final SelenideElement search_input = $x("//*[@id='NavTextField']");
     public MainPage(){
         Selenide.open(ConfigProvider.URL);
-        getWebDriver().manage().window().maximize();
+        webdriver().object().manage().window().maximize();
     }
     public LoginPage MoveToLogin(){
         login_header_button.click();
