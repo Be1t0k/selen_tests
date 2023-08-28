@@ -15,8 +15,6 @@ public class BaseSelenideTest {
          Configuration.browser = "chrome";
          Configuration.headless = false;
          Configuration.pageLoadStrategy="normal";
-         ChromeOptions options = new ChromeOptions();
-         options.addArguments("start-maximized");
      }
      @Before
     public void init(){
