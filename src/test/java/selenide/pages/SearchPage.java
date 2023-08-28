@@ -10,7 +10,8 @@ public class SearchPage {
     private final SelenideElement search_res_title = $x("//ul[@id=\"searchSummaryContainer\"]/li/div/h1/span[2]");
     private final SelenideElement price_toggle = $x("//*[@id=\"price\"]/a");
 
-    public void OpenDetails(){
-
+    public DetailsPage OpenDetails(){
+        link_to_details.first().click();
+        return new DetailsPage();
     }
 }

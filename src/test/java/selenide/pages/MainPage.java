@@ -33,7 +33,6 @@ public class MainPage {
     public SearchPage Search(String query){
         search_input.sendKeys(query, Keys.ENTER);
         return new SearchPage();
-
     }
 }
 
