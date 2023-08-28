@@ -13,7 +13,6 @@ import selenide.base.BaseSelenideTest;
 import selenide.pages.LoginPage;
 import selenide.pages.MainPage;
 import selenide.pages.SearchPage;
-import selenium.pages.DetailsPage;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.webdriver;

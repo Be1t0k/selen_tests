@@ -3,9 +3,8 @@ package selenide.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import selenium.pages.DetailsPage;
+
+
 
 import java.time.Duration;
 import java.util.Collection;
