@@ -16,6 +16,7 @@ abstract public class BaseSeleniumTest {
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         options.addArguments("--disable-gpu");
+        options.addArguments("--remote-allow-origins=*");
         driver = WebDriverManager.chromedriver().capabilities(options).create();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
