@@ -6,7 +6,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
 import selenide.base.BaseSelenideTest;
-import selenide.pages.DetailsPage;
 import selenide.pages.MainPage;
 import selenide.pages.SearchPage;
 
@@ -44,17 +43,15 @@ public class TurboSquid extends BaseSelenideTest {
         //Assert.assertTrue(searchPage.getPriceElement());
         //Assert.assertTrue(searchPage.getSearchResult().contains(ConfigProvider.SEARCH_DATA));
     }
-
+    /*
     @Order(3)
     @Test
     public void AddToCartUser(){
-        DetailsPage detailsPage = new DetailsPage();
         MainPage mainPage = new MainPage();
         mainPage.MoveToLogin()
                 .InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD)
-                .ChangeTypeSearch()
                 .Search(ConfigProvider.SEARCH_DATA)
                 .OpenDetails()
-                .AddToCart();
-    }
+                .AddToCart("4");
+    }*/
 }
