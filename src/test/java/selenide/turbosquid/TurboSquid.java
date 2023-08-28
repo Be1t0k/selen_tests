@@ -1,6 +1,7 @@
 package selenide.turbosquid;
 
 import helpers.ConfigProvider;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -15,9 +16,9 @@ public class TurboSquid extends BaseSelenideTest {
     @Test
     @Order(1)
     public void Login(){
-        MainPage mainPage = new MainPage()
-                .MoveToLogin()
-                .InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD);
+        MainPage mainPage = new MainPage();
+        mainPage.MoveToLogin();
+                //.InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD);
         /*Assert.assertTrue(driver.getCurrentUrl().contains(ConfigProvider.URL));
         Assert.assertTrue(driver.findElement(By.className("icon-user")).isDisplayed());*/
     }

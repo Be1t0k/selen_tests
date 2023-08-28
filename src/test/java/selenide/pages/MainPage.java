@@ -4,8 +4,8 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.typesafe.config.Config;
-import helpers.ConfigProvider;
 import org.openqa.selenium.Keys;
+import selenide.helpers.ConfigProvider;
 
 import java.time.Duration;
 

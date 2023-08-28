@@ -11,6 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import selenium.base.BaseSeleniumPage;
 
 public class SearchPage extends BaseSeleniumPage {
+    public SearchPage(){
+        PageFactory.initElements(driver, this);
+    }
     @FindBy(id = "Asset1286623")
     private WebElement goodIcon;
     @FindBy(xpath = "//*[@id=\"Asset1286623\"]/div[1]/div[2]/a")
@@ -19,20 +22,17 @@ public class SearchPage extends BaseSeleniumPage {
     private WebElement search_res;
     @FindBy(xpath = "//*[@id=\"price\"]/a")
     private By price_toggle;
-    public SearchPage() {
-        PageFactory.initElements(driver, this);
-    }
 
-    public boolean CheckElement(By element) {
+    public boolean CheckElement(By element){
         try {
             driver.findElement(element);
-        } catch (NotFoundException e) {
+        }
+        catch (NotFoundException e){
             return false;
         }
         return true;
     }
-
-    public DetailsPage OpenDetails() {
+    public DetailsPage OpenDetails(){
         Actions actions = new Actions(driver);
         actions.moveToElement(goodIcon);
         goodIcon.click();
@@ -41,12 +41,10 @@ public class SearchPage extends BaseSeleniumPage {
         Assert.assertTrue(CheckElement(By.xpath("//*[@id=\"price\"]/a")));
         return new DetailsPage();
     }
-
-    public String getSearchResult() {
+    public String getSearchResult(){
         return search_res.getText().toLowerCase();
     }
-
-    public Boolean getPriceElement() {
+    public Boolean getPriceElement(){
         return CheckElement(By.xpath("//*[@id=\"price\"]/a"));
     }
 }

@@ -6,9 +6,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import selenium.base.BaseSeleniumPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import selenium.base.BaseSeleniumPage;
 
 import java.time.Duration;
 
@@ -29,26 +29,22 @@ public class MainPage extends BaseSeleniumPage {
     private WebElement list_item_link;
     @FindBy(xpath = "//ul[@id=\"searchSummaryContainer\"]/li/div/h1/span[2]")
     private WebElement search_res;
-
-    public MainPage() {
+    public MainPage(){
         driver.get(ConfigProvider.URL);
         PageFactory.initElements(driver, this);
     }
-
-    public LoginPage MoveToLogin() {
+    public LoginPage MoveToLogin(){
         login_header_button.click();
         return new LoginPage();
     }
-
-    public MainPage ChangeTypeSearch() {
+    public MainPage ChangeTypeSearch(){
         dropdown_button.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("home-media-type-texture-maps-option")));
         list_item.click();
         return this;
     }
-
-    public SearchPage Search(String query) {
+    public SearchPage Search(String query){
         search_input.sendKeys(query, Keys.ENTER);
         //Assert.assertTrue(list_item_link.getText().toLowerCase().contains(ConfigProvider.SEARCH_DATA.toLowerCase()));
         return new SearchPage();
