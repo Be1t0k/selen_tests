@@ -2,6 +2,7 @@ package selenide.turbosquid;
 
 import com.codeborne.selenide.As;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import helpers.ConfigProvider;
 import org.junit.Assert;
@@ -20,6 +21,7 @@ import static com.codeborne.selenide.WebDriverConditions.url;
 
 
 public class TurboSquid extends BaseSelenideTest {
+    private final SelenideElement count_cart = $x("//*[@id=\"btnNavCart\"]/span[2]");
     @Test
     public void Login(){
         MainPage mainPage = new MainPage()
@@ -37,8 +39,8 @@ public class TurboSquid extends BaseSelenideTest {
     @Test
     public void SearchAddToCart(){
         SearchPage searchPage = new MainPage().Search(ConfigProvider.SEARCH_DATA)
-                .FromSearchAddToCart();
-        Assert.assertEquals("1", $x("//*[@id=\"btnNavCart\"]/span[2]").getText());
+                .FromSearchAddToCart().AddToCart(count_cart.getText());
+        Assert.assertEquals("1", count_cart.getText());
     }
 
     @Test
@@ -53,11 +55,10 @@ public class TurboSquid extends BaseSelenideTest {
     @Test
     public void AddToCartUser(){
         MainPage mainPage = new MainPage();
-        String cart_count = mainPage.getCartCount();
         mainPage.MoveToLogin()
                 .InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD)
                 .Search(ConfigProvider.SEARCH_DATA)
-                .OpenDetails()
-                .AddToCart(cart_count);
+                .OpenDetailsPage()
+                .AddToCart(count_cart.getText());
     }
 }
