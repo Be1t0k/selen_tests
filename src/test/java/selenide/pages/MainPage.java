@@ -17,6 +17,7 @@ public class MainPage {
     private final SelenideElement dropdown_button = $x("//button[@id='home-media-type-select-button']");
     private final ElementsCollection list_items = $$x("//*[@id='mediaTypeSelect']/div/div[2]/li[not(@*)]");
     private final SelenideElement search_input = $x("//*[@id='NavTextField']");
+    private final SelenideElement count_cart = $x("//*[@id=\"btnNavCart\"]/span[2]");
     public MainPage(){
         Selenide.open(ConfigProvider.URL);
         webdriver().object().manage().window().maximize();
@@ -36,6 +37,10 @@ public class MainPage {
     }
     public String getTypeText(){
         return list_items.first().getText().toLowerCase();
+    }
+
+    public String getCartCount() {
+       return count_cart.getText();
     }
 }
 

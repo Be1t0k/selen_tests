@@ -49,14 +49,15 @@ public class TurboSquid extends BaseSelenideTest {
         Assert.assertTrue(searchPage.getSearchResult().contains("texture maps"));
         Assert.assertTrue(searchPage.getSearchResult().contains(ConfigProvider.SEARCH_DATA.toLowerCase()));
     }
-    /*
+
     @Test
     public void AddToCartUser(){
         MainPage mainPage = new MainPage();
+        String cart_count = mainPage.getCartCount();
         mainPage.MoveToLogin()
                 .InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD)
                 .Search(ConfigProvider.SEARCH_DATA)
                 .OpenDetails()
-                .AddToCart("4");
-    }*/
+                .AddToCart(cart_count);
+    }
 }
