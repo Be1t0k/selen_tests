@@ -34,7 +34,7 @@ public class TurboSquid extends BaseSeleniumTest {
     @Test
     public void Search(){
         DetailsPage detailsPage = new MainPage().Search(ConfigProvider.SEARCH_DATA)
-                .OpenDetails()
+                .OpenDetails(2)
                 .AddToCart("1");
     }
     @Order(5)
@@ -51,7 +51,7 @@ public class TurboSquid extends BaseSeleniumTest {
         mainPage.MoveToLogin()
                 .InputLoginData(ConfigProvider.EMAIL, ConfigProvider.PASSWORD)
                 .Search(ConfigProvider.SEARCH_DATA)
-                .OpenDetails()
+                .OpenDetails(2)
                 .AddToCart("4");
     }
 }
